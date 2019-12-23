@@ -8,9 +8,12 @@ const errorMsg = {
   sessionExpired: "Mehn, this session has expired",
   notAuth: "Oga, abeg login to access this things you wan see o",
   notAllowed: " You no get Admin rights sir or ma",
+  busNotFound: "This bus is not found, maybe make you create",
   emailExits: " This email dey our database o, signin instead",
   cantcreate: "Can't create a user oo. tell admin",
-  loginFailure: "Your password no match o nigga. check am"
+  loginFailure: "Your password no match o nigga. check am",
+  cantCreateTrip: "Cannot create a Trip bro",
+  busNotAvailable: "Bus no dey ground Omo iya mi"
 };
 
 export default errorMsg;

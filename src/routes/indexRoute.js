@@ -4,24 +4,31 @@ import bookingController from "../controllers/bookingController";
 import busController from "../controllers/busController";
 import tripController from "../controllers/tripController";
 import ValidateUser from "../middlewares/validateUser";
-// import Auth from "../middlewares/authenticator";
+import tripValidator from "../middlewares/validateTrip";
+import auth from "../middlewares/authenticator";
 
-const routes = express.Router();
+const router = express.Router();
 
 // User Routes
-routes.post("/auth/signup", ValidateUser.signup, userController.signup);
+router.post("/auth/signup", ValidateUser.signup, userController.signup);
 
-routes.post("/auth/signin", ValidateUser.signin, userController.signin);
+router.post("/auth/signin", ValidateUser.signin, userController.signin);
 
 // Buses Panel
-routes.get("/buses", busController.getBuses);
-routes.post("/bus", busController.createBus);
+router.get("/buses", busController.getBuses);
+router.post("/bus", busController.createBus);
 
 // Booking Panel
-routes.get("/aBookings", bookingController.getBookings);
-routes.get("/bookings", bookingController.getAllBooking);
+router.get("/aBookings", bookingController.getBookings);
+router.get("/bookings", bookingController.getAllBooking);
 
 // Trip Routes
-routes.get("/trips", tripController.getAllTrips);
+router.get("/alltrips", tripController.getAllTrips);
+router.post(
+  "trips",
+  auth.authenticateAdmin,
+  tripValidator.validateTrip,
+  tripController.createTrip
+);
 
-export default routes;
+export default router;

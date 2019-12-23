@@ -22,7 +22,7 @@ class userValidator {
       .withMessage("Email is required")
       .trim()
       .matches(
-        /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+        /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
       )
       .withMessage("Input a valid email")
       .customSanitizer(name => name.toLowerCase());
@@ -36,12 +36,10 @@ class userValidator {
     req
       .asyncValidationErrors()
       .then(next)
-      .catch(errors =>
-        res.status(400).json({
-          status: "error",
-          error: errors.map(err => err.msg)
-        })
-      );
+      .catch(errors => res.status(400).json({
+        status: "error",
+        error: errors.map(err => err.msg)
+      }));
   }
 
   static signin(req, res, next) {
@@ -64,12 +62,10 @@ class userValidator {
     req
       .asyncValidationErrors()
       .then(next)
-      .catch(errors =>
-        res.status(400).json({
-          status: "error",
-          error: errors.map(err => err.msg)
-        })
-      );
+      .catch(errors => res.status(400).json({
+        status: "error",
+        error: errors.map(err => err.msg)
+      }));
   }
 }
 
