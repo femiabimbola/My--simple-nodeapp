@@ -11,7 +11,7 @@ const routes = express.Router();
 // User Routes
 routes.post("/auth/signup", ValidateUser.signup, userController.signup);
 
-routes.post("/auth/signin", userController.signin);
+routes.post("/auth/signin", ValidateUser.signin, userController.signin);
 
 // Buses Panel
 routes.get("/buses", busController.getBuses);
