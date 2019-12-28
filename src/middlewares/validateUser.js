@@ -1,7 +1,7 @@
 class userValidator {
   static signup(req, res, next) {
     req
-      .checkBody("firstName")
+      .checkBody("first_name")
       .notEmpty()
       .withMessage("First Name is required")
       .trim()
@@ -9,7 +9,7 @@ class userValidator {
       .withMessage("First Name Input is Invalid")
       .customSanitizer(name => name.toLowerCase());
     req
-      .checkBody("lastName")
+      .checkBody("last_name")
       .notEmpty()
       .withMessage("Last Name is required")
       .trim()
@@ -36,10 +36,12 @@ class userValidator {
     req
       .asyncValidationErrors()
       .then(next)
-      .catch(errors => res.status(400).json({
-        status: "error",
-        error: errors.map(err => err.msg)
-      }));
+      .catch(errors =>
+        res.status(400).json({
+          status: "error",
+          error: errors.map(err => err.msg)
+        })
+      );
   }
 
   static signin(req, res, next) {
@@ -62,10 +64,12 @@ class userValidator {
     req
       .asyncValidationErrors()
       .then(next)
-      .catch(errors => res.status(400).json({
-        status: "error",
-        error: errors.map(err => err.msg)
-      }));
+      .catch(errors =>
+        res.status(400).json({
+          status: "error",
+          error: errors.map(err => err.msg)
+        })
+      );
   }
 }
 

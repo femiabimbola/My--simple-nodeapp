@@ -28,6 +28,8 @@ class TripController {
       return responder.error(res, 404, errorMsg.serverError1);
     }
   }
+
+  static async getAllTrips() {}
 }
 
 export default TripController;

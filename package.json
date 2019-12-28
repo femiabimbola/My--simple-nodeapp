@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start-dev": "nodemon --exec babel-node ./src/app.js",
-    "test": "nyc mocha --require @babel/register src/test/user.test.js --timeout 5000ms --exit",
+    "test": "nyc mocha --require @babel/register src/test/user.test.js --timeout 50000ms --exit",
     "db-dev": "npm run dev-migration && npm run dev-seeder",
     "dev-migration": " babel-node ./src/database/migrations dropingTables &&  babel-node ./src/database/migrations creatingTables",
     "dev-seeder": "babel-node ./src/database/seeder seeder"
@@ -42,6 +42,7 @@
     "@babel/register": "^7.6.2",
     "chai": "^4.2.0",
     "chai-http": "^4.3.0",
+    "coveralls": "^3.0.9",
     "eslint": "^6.6.0",
     "eslint-config-airbnb-base": "^14.0.0",
     "eslint-plugin-import": "^2.18.2",
