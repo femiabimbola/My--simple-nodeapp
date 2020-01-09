@@ -8,7 +8,9 @@
     "test": "nyc mocha --require @babel/register src/test/user.test.js --timeout 50000ms --exit",
     "db-dev": "npm run dev-migration && npm run dev-seeder",
     "dev-migration": " babel-node ./src/database/migrations dropingTables &&  babel-node ./src/database/migrations creatingTables",
-    "dev-seeder": "babel-node ./src/database/seeder seeder"
+    "dev-seeder": "babel-node ./src/database/seeder seeder",
+    "coverage": "nyc report --reporter=text-lcov | coveralls",
+    "coveralls": "nyc --reporter=lcov --reporter=text-lcov npm test"
   },
   "author": "femi",
   "license": "MIT",

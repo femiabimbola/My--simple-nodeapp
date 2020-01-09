@@ -3,11 +3,10 @@ node_js:
   - "stable"
 env:
   global:
-    - CC_TEST_REPORTER_ID=4592af85aaa86101d093351047561622aa3221fd38424f1f17c1786aceb7cfca
+    - CC_TEST_REPORTER_ID=0c9114bfd41a18b4567df3b67f2833971df5ad408170831d92c6433afbc453a6
     - NODE_ENV=test
 services:
   - postgresql
 before_script:
   - psql -c 'create database test_db;' -U postgres
-script: npm test
-after_success: npm run coverage
+script: npm run test

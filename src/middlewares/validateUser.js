@@ -1,3 +1,4 @@
+/* eslint-disable implicit-arrow-linebreak */
 class userValidator {
   static signup(req, res, next) {
     req
