@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start-dev": "nodemon --exec babel-node ./src/app.js",
-    "test": "SET NODE_ENV=test && npm run dev-migration && nyc mocha --require @babel/register src/test/user.test.js --timeout 50000ms --exit",
+    "test": "set NODE_ENV=test&&npm run dev-migration && nyc mocha --require @babel/register src/test/user.test.js --timeout 50000ms --exit",
     "db-dev": "npm run dev-migration && npm run dev-seeder",
     "dev-migration": " babel-node ./src/database/migrations dropingTables &&  babel-node ./src/database/migrations creatingTables",
     "dev-seeder": "babel-node ./src/database/seeder seeder",
